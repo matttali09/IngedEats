@@ -1,3 +1,9 @@
+
+.waves-effect{
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+
 /* footer styling */
 footer {
     position: absolute;
@@ -27,4 +33,5 @@ a:hover {
 }
 a:active {
     color: red;
+
 }
