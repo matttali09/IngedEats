@@ -1,5 +1,37 @@
+
 .waves-effect{
     position: absolute;
     right: 0;
     margin-top: 5px;
+
+/* footer styling */
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: darkgrey;
+    color: grey;
+    text-align: center;
+}
+#footer {
+    font-size: 26px;
+    min-height: 12em;
+    /* vertical-align: center;
+    display: table-cell; */
+}
+
+/* link styling */
+a:link {
+    color: blue;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: green;
+}
+a:active {
+    color: red;
+
 }
