@@ -11,7 +11,7 @@ footer {
     height: 100px;
     width: 100%;
     background-color: darkgrey;
-    color: rgb(211, 198, 198);
+    color: #d8d2d2;
     text-align: center;
 }
 #footer {
@@ -36,6 +36,17 @@ a:active {
 
 }
 
+/* media queries */
+@media screen and (max-width: 985px) {
+    footer {
+        height: 118px;
+    }
+}
+@media screen and (max-width: 619px) {
+    footer {
+        height: 198px;
+    }
+}
 @media screen and (max-width: 520px) {
     .brand-logo {
         width: 62%;
