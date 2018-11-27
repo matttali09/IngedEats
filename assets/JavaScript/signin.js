@@ -1,5 +1,11 @@
+console.log("this is before anything");
+
 function onSignIn(googleUser) {
+  console.log("this is after signin presss");
+  
     var profile = googleUser.getBasicProfile();
+    console.log(profile);
+    
     $(".g-signin2").css("display", "none");
     $(".data").css("display", "block");
     $("#pic").attr('src', profile.getImageUrl());
