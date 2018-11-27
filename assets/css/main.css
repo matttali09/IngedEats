@@ -2,16 +2,26 @@
 .waves-effect{
     position: absolute;
     right: 0;
-    margin-top: 3px!important;
+
+    margin-top: 4px !important;
+}
+.brand-logo{
+    text-shadow: 2px 2px orange;
+}
+.card-title{
+    margin-bottom: 311px !important; 
+    text-shadow: 2px 4px orange;
+    font-size: 80px !important;
 }
 /* footer styling */
-footer {
+footer {    
     position: absolute;
     bottom: 0;
-    height: 100px;
     width: 100%;
-    background-color: darkgrey;
-    color: #d8d2d2;
+
+    background-color: rgba(30, 124, 30, 0.808);
+    color: white;
+
     text-align: center;
 }
 #footer {
@@ -22,16 +32,16 @@ footer {
 }
 
 /* link styling */
-a:link {
-    color: blue;
+#footer a:link {
+    color: white;
 }
-a:visited {
+#footer a:visited {
     color: purple;
 }
-a:hover {
+#footer a:hover {
     color: green;
 }
-a:active {
+#footer a:active {
     color: red;
 
 }
