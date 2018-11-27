@@ -1,7 +1,7 @@
 console.log("this is before anything");
 
 function onSignIn(googleUser) {
-  console.log("this is after signin presss");
+  console.log("this is after signin press");
   
     var profile = googleUser.getBasicProfile();
     console.log(profile);
