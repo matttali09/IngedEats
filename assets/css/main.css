@@ -1,4 +1,9 @@
-
+.body{
+    background-color: #ff9800b5 !important;
+}
+.sidenav{
+    background-color: #ffb03c !important;
+}
 .waves-effect{
     position: absolute;
     right: 0;
@@ -24,7 +29,6 @@
 }
 /* footer styling */
 footer {    
-    position: absolute;
     bottom: 0;
     width: 100%;
 
