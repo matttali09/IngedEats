@@ -13,6 +13,15 @@
     text-shadow: 2px 4px orange;
     font-size: 80px !important;
 }
+
+/* google signin styling */
+.g-signin2 {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+.data {
+    display: none;
+}
 /* footer styling */
 footer {    
     position: absolute;
