@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <!--Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css">
@@ -21,7 +22,7 @@
     <div id="nav-bar">
         <nav>
             <div class="nav-wrapper green">
-                <a href="#!" class="brand-logo center">SnackAttack</a>
+                <a href="#!" class="brand-logo center">Snack<i class="material-icons">restaurant_menu</i>Attack<i class="material-icons right">restaurant_menu</i></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons left">menu</i></a>
                 <ul class="left hide-on-med-and-down">
                     <li class="active"><a href="index.html">Home</a></li>
@@ -32,12 +33,15 @@
             </div>
         </nav>
 
-        <ul class="sidenav" id="mobile-demo">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li class="active"><a href="getlucky.html">Get Lucky</a></li>
-            <li class="active"><a href="results.html">Results</a></li>
+        <ul class="sidenav green lighten-2" id="mobile-demo">
+            <li class="active green"><a href="index.html">Home</a></li>
+            <li class="active green"><a href="surpriseme.html">Surprise Me</a></li>
+            <li class="active green"><a href="results.html">Results</a></li>
         </ul>
     </div>
+
+
+
 
 
 
@@ -45,9 +49,22 @@
     <footer>
         <div id="footer">@copy; CopyRight 2018 <img src="" id="logo" alt="" target="_blank"> <a href="">Facebook Profile</a> <span id="email-text">Email the website</span> proprieters: <a href="user_email"><span id="email">danielle.wood9988@gmail.com,</span></a> <a href="user_email"><span id="email">matttaliancich09@gmail</span></a> <a href="user_email"><span id="email">winfield.huang@gmail.com</span></a></div>
     </footer>
+  
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <!-- link our JavaScript file -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+      });
+      $(document).ready(function(){
+        $('.sidenav').sidenav();
+      });</script>
     <script src="assets/JavaScript/main.js"></script>
 </body>
 
