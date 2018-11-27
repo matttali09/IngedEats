@@ -18,11 +18,11 @@
     text-shadow: 2px 4px orange;
     font-size: 80px !important;
 }
-#card-title {
-    font-size: 65px;
-    text-shadow: 2px 4px orange;
-}
-
+#form-title {
+    line-height: 65px;
+    margin-bottom: 613px !important;
+}    
+   
 /* google signin styling */
 .g-signin2 {
     margin-left: 500px;
@@ -32,7 +32,8 @@
     display: none;
 }
 /* footer styling */
-footer {    
+.page-footer {    
+    text-align: center !important;
     bottom: 0;
     width: 100%;
 
@@ -41,9 +42,10 @@ footer {
 
     text-align: center;
 }
-#footer {
+.footer-copyright {
+    text-align: center !important;
     font-size: 26px;
-    min-height: 12em;
+    height: 15px !important;
     /* vertical-align: center;
     display: table-cell; */
 }
