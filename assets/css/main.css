@@ -1,22 +1,26 @@
-.body{
+.body {
     background-color: #ff9800b5 !important;
 }
-.sidenav{
+.sidenav {
     background-color: #ffb03c !important;
 }
-.waves-effect{
+.waves-effect {
     position: absolute;
     right: 0;
 
     margin-top: 4px !important;
 }
-.brand-logo{
+.brand-logo {
     text-shadow: 2px 2px orange;
 }
-.card-title{
+.card-title {
     margin-bottom: 709px !important; 
     text-shadow: 2px 4px orange;
     font-size: 80px !important;
+}
+#card-title {
+    font-size: 65px;
+    text-shadow: 2px 4px orange;
 }
 
 /* google signin styling */
@@ -61,7 +65,7 @@ footer {
 
 /* media queries */
 @media screen and (max-width: 985px) {
-    .card-title{
+    .card-title {
         margin-bottom: 690px !important;
     }
     footer {
@@ -69,7 +73,7 @@ footer {
     }
 }
 @media screen and (max-width: 768px){
-.card-title{
+.card-title {
 margin-bottom: 751px !important;
 font-size: 52px !important;
     }
@@ -84,12 +88,12 @@ font-size: 52px !important;
         text-align: justify;
         width: 67% !important;
     }
-    .card-title{
+    .card-title {
         margin-bottom: 555px !important;
         font-size: 54px !important;
         margin-left: -15px;
     }
-    .right{
+    .right {
         margin: -53px;
     }
 }
