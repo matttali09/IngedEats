@@ -14,7 +14,7 @@
     text-shadow: 2px 2px orange;
 }
 .card-title{
-    margin-bottom: 311px !important; 
+    margin-bottom: 709px !important; 
     text-shadow: 2px 4px orange;
     font-size: 80px !important;
 }
@@ -61,8 +61,17 @@ footer {
 
 /* media queries */
 @media screen and (max-width: 985px) {
+    .card-title{
+        margin-bottom: 690px !important;
+    }
     footer {
         height: 118px;
+    }
+}
+@media screen and (max-width: 768px){
+.card-title{
+margin-bottom: 751px !important;
+font-size: 52px !important;
     }
 }
 @media screen and (max-width: 619px) {
@@ -72,6 +81,15 @@ footer {
 }
 @media screen and (max-width: 520px) {
     .brand-logo {
-        width: 62%;
+        text-align: justify;
+        width: 67% !important;
+    }
+    .card-title{
+        margin-bottom: 555px !important;
+        font-size: 54px !important;
+        margin-left: -15px;
+    }
+    .right{
+        margin: -53px;
     }
 }
