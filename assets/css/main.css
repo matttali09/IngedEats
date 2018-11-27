@@ -2,6 +2,7 @@
 .waves-effect{
     position: absolute;
     right: 0;
+
     margin-top: 4px !important;
 }
 .brand-logo{
@@ -17,8 +18,10 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+
     background-color: rgba(30, 124, 30, 0.808);
     color: white;
+
     text-align: center;
 }
 #footer {
@@ -41,4 +44,21 @@ footer {
 #footer a:active {
     color: red;
 
+}
+
+/* media queries */
+@media screen and (max-width: 985px) {
+    footer {
+        height: 118px;
+    }
+}
+@media screen and (max-width: 619px) {
+    footer {
+        height: 198px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .brand-logo {
+        width: 62%;
+    }
 }
