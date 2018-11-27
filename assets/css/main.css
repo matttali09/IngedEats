@@ -43,9 +43,7 @@ footer {
 }
 #footer {
     font-size: 26px;
-    min-height: 12em;
-    /* vertical-align: center;
-    display: table-cell; */
+    min-height: 4em;
 }
 
 /* link styling */
