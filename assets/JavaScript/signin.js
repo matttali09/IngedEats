@@ -25,3 +25,8 @@ function onSignIn(googleUser) {
       console.log('User signed out.');
     });
   }
+
+  $("#go-back").click(function(e) {
+    e.preventDefault();
+    window.open("index.html")
+  });
