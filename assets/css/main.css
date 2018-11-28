@@ -5,6 +5,7 @@
 .sidenav {
     background-color: #ffb03c !important;
 }
+
 /* navbar styling */
 .waves-effect {
     position: absolute;
@@ -14,6 +15,7 @@
 .brand-logo {
     text-shadow: 2px 2px orange;
 }
+
 /* card styling */
 .card-title {
     margin-bottom: 709px !important; 
@@ -24,9 +26,6 @@
     line-height: 65px;
     margin-bottom: 613px !important;
 }    
-
-
-
    
 /* footer styling */
 .page-footer {    
