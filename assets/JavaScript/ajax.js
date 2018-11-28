@@ -55,9 +55,13 @@ function displayRestaurants(data) {
         let icon = $("<i>").addClass("material-icons circle green").text("map");
         let title = $("<span>").addClass("title").html("<strong>" + name + "</strong>");
         let addr = $("<p>").html(address[0] + "<br>" + address[1] + "<br>" + address[2]);
+        let fav = $("<a>").addClass("secondary-content").attr("href", "#");
+        let favicon = $("<i>").addClass("material-icons").text("star");
 
         // combine elements and add to the DOM
+        fav.append(favicon);
         link.append(icon);
+        list.append(fav);
         list.append(link);
         list.append(title);
         list.append(addr);
@@ -112,6 +116,8 @@ function displayRecipes(data) {
 
 // function that checks to see if GPS capability is available
 function getLocation() {
+    event.preventDefault();
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             // set the values of the location
@@ -129,6 +135,9 @@ $(function () {
     $("#submit").on("click", function () {
         // stop the default behavior
         event.preventDefault();
+
+        // open the results.html
+        // window.open("results.html", "_top");
 
         // grab the main-ingredient for the query
         mainIng = $("#main-ing").val().trim();
