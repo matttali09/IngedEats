@@ -12,8 +12,3 @@ $(this).on("click", ".favorites", function(event) {
     favsDiv.attr(favsSRC);
     // $("#favorites").append(favsDiv);
 });
-
-// $(favsDiv).click(function(e) {
-//     e.preventDefault();
-//     window.open(favsDiv.attr("src"))
-// })
