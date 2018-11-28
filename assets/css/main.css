@@ -22,6 +22,21 @@
     margin-bottom: 613px !important;
 }    
 
+
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+   
+/* google signin styling */
+.g-signin2 {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+.data {
+    display: none;
+}
+
 /* footer styling */
 .page-footer {    
     text-align: center !important;
@@ -33,10 +48,7 @@
 
     text-align: center;
 }
-h5 {
-    margin-top: 0;
-    margin-bottom: 0;
-}
+
 .page-footer {
     padding-top: 10px;
     width: 100%!important;
@@ -51,6 +63,7 @@ footer div {
 }
 #our-name {
     margin-bottom: 6px!important;
+    text-shadow: 2px 2px orange;
 }
 
 /* link styling */
@@ -72,6 +85,9 @@ footer a:active {
 @media screen and (max-width: 985px) {
     .card-title {
         margin-bottom: 690px !important;
+    }
+    #form-title {
+        margin-bottom: 838px !important;
     }
 }
 @media screen and (max-width: 768px){
