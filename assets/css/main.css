@@ -9,7 +9,6 @@
 .waves-effect {
     position: absolute;
     right: 0;
-
     margin-top: 4px !important;
 }
 .brand-logo {
@@ -25,8 +24,10 @@
     line-height: 65px;
     margin-bottom: 613px !important;
 }    
-   
 
+
+
+   
 /* footer styling */
 .page-footer {    
     text-align: center !important;
@@ -56,6 +57,7 @@ footer div {
 }
 #our-name {
     margin-bottom: 6px!important;
+    text-shadow: 2px 2px orange;
 }
 
 /* link styling */
@@ -77,6 +79,9 @@ footer a:active {
 @media screen and (max-width: 985px) {
     .card-title {
         margin-bottom: 690px !important;
+    }
+    #form-title {
+        margin-bottom: 838px !important;
     }
 }
 @media screen and (max-width: 768px){
