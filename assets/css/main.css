@@ -1,9 +1,11 @@
+/* body and nav color styling */
 .body {
     background-color: #ff9800b5 !important;
 }
 .sidenav {
     background-color: #ffb03c !important;
 }
+/* navbar styling */
 .waves-effect {
     position: absolute;
     right: 0;
@@ -12,6 +14,7 @@
 .brand-logo {
     text-shadow: 2px 2px orange;
 }
+/* card styling */
 .card-title {
     margin-bottom: 709px !important; 
     text-shadow: 2px 4px orange;
@@ -23,20 +26,8 @@
 }    
 
 
-h5 {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-   
-/* google signin styling */
-.g-signin2 {
-    margin-left: 500px;
-    margin-top: 200px;
-}
-.data {
-    display: none;
-}
 
+   
 /* footer styling */
 .page-footer {    
     text-align: center !important;
@@ -48,7 +39,10 @@ h5 {
 
     text-align: center;
 }
-
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .page-footer {
     padding-top: 10px;
     width: 100%!important;
