@@ -1,22 +1,9 @@
-/* Form ID's
-#main-ing
-#sec-ing .... up to six ingredients
-#cuisine
-#addy
-#geo-loc
-#submit */
+console.log("This file is connected.");
 
 // variables ===========================================
 let mainIng = "";
-let secIng = "";
-let thirdIng = "";
-let fourthIng = "";
-let fifthIng = "";
-let sixthIng = "";
 let myLat;
 let myLong;
-let address = "3024+Meadow+Lake+Ave.,+Largo,+FL";
-let cuisine = "";
 
 function recipeAjax() {
     let recipeAPIkey = "7872e935a7940ef06e573678577b1f1a";
@@ -42,7 +29,7 @@ function displayRecipes(data) {
     for (let i = 0; i < 5; i++) {
         // make the card div
         let column = $("<div>").addClass("col s6 m6 l3");
-        let card = $("<div>").addClass("card");
+        let card = $("<div>").addClass("card small");
 
         // make the div for the image
         let cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light");
@@ -106,7 +93,7 @@ function displayRestaurants(data) {
         let title = $("<span>").addClass("title").html("<strong>" + name + "</strong>");
         let addr = $("<p>").html(address[0] + "<br>" + address[1] + "<br>" + address[2]);
         let fav = $("<a>").addClass("secondary-content").attr("href", "#");
-        let favicon = $("<i>").addClass("material-icons favorites").text("star");
+        let favicon = $("<i>").addClass("material-icons").text("star");
 
         // combine elements and add to the DOM
         fav.append(favicon);
@@ -139,23 +126,13 @@ function getLocation() {
 
 // document ready func.
 $(function () {
-    $("#submit").on("click", function () {
+    $("#submit").on("click", function (event) {
         // stop the default behavior
         event.preventDefault();
 
-        // open the results.html
-        // window.open("results.html", "_top");
-
         // grab the main-ingredient for the query
         mainIng = $("#main-ing").val().trim();
-        // secIng = $("#sec-ing").val().trim();
-        // thirdIng = $("#third-ing").val().trim();
-        // fourthIng = $("#fourth-ing").val().trim();
-        // fifthIng = $("#fifth-ing").val().trim();
-        // sixIng = $("#six-ing").val().trim();
-        // address = $("#address").val().trim();
-        // cuisine = $("#cuisine").val().trim();
-        // dietRest = $("#diet-rest").val().trim();
+
         restaurantAjax();
         recipeAjax();
     });
