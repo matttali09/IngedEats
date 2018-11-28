@@ -1,3 +1,4 @@
+/* body and nav color styling */
 .body {
     background-color: #ff9800b5 !important;
 }
@@ -5,7 +6,13 @@
 .sidenav {
     background-color: #ffb03c !important;
 }
+
 #sign-in {
+
+}
+/* navbar styling */
+.waves-effect {
+
     position: absolute;
     right: 0;
     margin-top: 4px !important;
@@ -18,6 +25,8 @@
 .card-image {
     position: relative;
 }
+
+/* card styling */
 .card-title {
     text-shadow: 2px 4px orange;
 }
@@ -34,6 +43,7 @@ label {
     bottom: 82px;
     left: -16px;
 }    
+
 #aboutUs-title {
     font-size: 86px !important;
     position: absolute;
@@ -45,15 +55,7 @@ h5 {
     margin-top: 0;
     margin-bottom: 0;
 }
-   
-/* google signin styling */
-.g-signin2 {
-    margin-left: 500px;
-    margin-top: 200px;
-}
-.data {
-    display: none;
-}
+
 /* footer styling */
 .page-footer {    
     text-align: center !important;
@@ -65,7 +67,10 @@ h5 {
 
     text-align: center;
 }
-
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .page-footer {
     padding-top: 10px;
     width: 100%!important;
