@@ -46,7 +46,7 @@ label {
 #aboutUs-title {
     font-size: 86px !important;
     position: absolute;
-    bottom: 607px;
+    bottom: 0px;
     left: -15px;
 }
 
@@ -112,9 +112,9 @@ footer a:active {
     }
 }
 @media screen and (max-width: 768px){
-.card-title {
-margin-bottom: 751px !important;
-font-size: 52px !important;
+    .card-title {
+        margin-bottom: 751px !important;
+        font-size: 52px !important;
     }
 }
 @media screen and (max-width: 520px) {
@@ -122,10 +122,16 @@ font-size: 52px !important;
         text-align: justify;
         width: 67% !important;
     }
-    .card-title {
-        margin-bottom: 555px !important;
-        font-size: 54px !important;
-        margin-left: -15px;
+    #aboutUs-title {
+        margin-bottom: 0px !important;
+        font-size: 5em !important;
+        margin-left: -4px;
+    }
+    #form-title {
+        margin-bottom: 0px !important;
+        font-size: 2em !important;
+        margin-left: -1px;
+        line-height: 28px;
     }
     .right {
         margin: -53px;
