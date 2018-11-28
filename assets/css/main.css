@@ -41,22 +41,37 @@ footer {
 
     text-align: center;
 }
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.page-footer {
+    padding-top: 10px;
+    width: 100%!important;
+}
+footer div {
+    margin-top: 0!important;
+    margin-bottom: 5px!important;
+}
 #footer {
-    font-size: 26px;
-    min-height: 4em;
+    margin-top: 0;
+    margin-bottom: 5px!important;
+}
+#our-name {
+    margin-bottom: 6px!important;
 }
 
 /* link styling */
-#footer a:link {
+footer a:link {
     color: white;
 }
-#footer a:visited {
+footer a:visited {
     color: purple;
 }
-#footer a:hover {
+footer a:hover {
     color: green;
 }
-#footer a:active {
+footer a:active {
     color: red;
 
 }
@@ -66,19 +81,11 @@ footer {
     .card-title {
         margin-bottom: 690px !important;
     }
-    footer {
-        height: 118px;
-    }
 }
 @media screen and (max-width: 768px){
 .card-title {
 margin-bottom: 751px !important;
 font-size: 52px !important;
-    }
-}
-@media screen and (max-width: 619px) {
-    footer {
-        height: 198px;
     }
 }
 @media screen and (max-width: 520px) {
@@ -94,7 +101,7 @@ font-size: 52px !important;
     .right {
         margin: -53px;
     }
-    #footer {
+    .page-footer {
         font-size: 20px;
     }
 }
