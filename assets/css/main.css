@@ -45,9 +45,7 @@
 .footer-copyright {
     text-align: center !important;
     font-size: 26px;
-    height: 15px !important;
-    /* vertical-align: center;
-    display: table-cell; */
+    min-height: 4em;
 }
 
 /* link styling */
