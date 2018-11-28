@@ -6,14 +6,13 @@
 .sidenav {
     background-color: #ffb03c !important;
 }
-
 #sign-in {
-
+    position: absolute;
+    right: 0;
+    margin-top: 4px !important;
 }
 /* navbar styling */
 .waves-effect {
-
-    position: absolute;
     right: 0;
     margin-top: 4px !important;
 }
