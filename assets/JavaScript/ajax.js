@@ -8,86 +8,141 @@
 
 // variables ===========================================
 let mainIng = "";
-let addy = "Orlando";
+let secIng = "";
+let thirdIng = "";
+let fourthIng = "";
+let fifthIng = "";
+let sixthIng = "";
+let myLat;
+let myLong;
+let address = "3024+Meadow+Lake+Ave.,+Largo,+FL";
+let cuisine = "";
 
-function eatStreetAjax () {
-    let eatStreetAPIkey = "cddd80b6ec8e624d";
-    let eatStreetQueryURL = "https://api.eatstreet.com/publicapi/v1/restaurant/search?access-token=" + eatStreetAPIkey + "&method=both&search=fried+chicken&street-address=316+W.+Washington+Ave.+Madison,+WI";
+function restaurantAjax() {
+    let clientID = "2EQ443BHONMJJ0ZGUNR4ZWXOJQPGBRWDWVV55UBLPSOS5B3E";
+    let clientSecret = "YUCEUTQGZR3IAVPWFSB1C1ICQSKO1ABUBFEIKCRSWXMHVZQJ";
+    let queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=" + clientID + "&client_secret=" + clientSecret + "&v=20181127&limit=5&ll=" + myLat + "," + myLong + "&query='" + mainIng + "'";
 
     $.ajax({
-        url: eatStreetQueryURL,
+        url: queryURL,
         method: "GET"
     }).then(function (resp) {
-        console.log(eatStreetQueryURL);
+        // confirm data received
+        console.log(`Eat Street results:`);
+        console.log(queryURL);
         console.log(resp);
-        
+
+        displayRestaurants(resp.response.groups["0"].items);
     });
-    console.log("AFTER AJAX");
-    
 }
 
-function f2fAjax () {
-    let food2forkAPIkey = "7872e935a7940ef06e573678577b1f1a";
-    let food2forkQueryURL = "https://www.food2fork.com/api/search?key=" + food2forkAPIkey + "&q=" + mainIng + "&sort=r";
+function displayRestaurants(data) {
+    // confirm the data exists first
+    console.table(data);
+
+    // dynamically create the content for each result
+    for (let i = 0; i < 5; i++) {
+        // get values for the listing
+        let name = data[i].venue.name;
+        let venueID = data[i].venue.id;
+        let address = data[i].venue.location.formattedAddress;
+        let lat = data[i].venue.location.lat;
+        let long = data[i].venue.location.lng;
+
+        // create the content for the restaurtant
+        let list = $("<li>").addClass("collection-item avatar");
+        let link = $("<a>").attr("href", "#").attr("id", venueID).attr("data-lat", lat).attr("data-long", long);
+        let icon = $("<i>").addClass("material-icons circle green").text("map");
+        let title = $("<span>").addClass("title").html("<strong>" + name + "</strong>");
+        let addr = $("<p>").html(address[0] + "<br>" + address[1] + "<br>" + address[2]);
+
+        // combine elements and add to the DOM
+        link.append(icon);
+        list.append(link);
+        list.append(title);
+        list.append(addr);
+        $("#restaurant-results").append(list);
+    }
+}
+
+function recipeAjax() {
+    let recipeAPIkey = "7872e935a7940ef06e573678577b1f1a";
+    let recipeQueryURL = "https://www.food2fork.com/api/search?key=" + recipeAPIkey + "&q=" + mainIng + "&sort=r";
 
     $.ajax({
-        url: food2forkQueryURL,
+        url: recipeQueryURL,
         method: "GET",
         dataType: "json"
     }).then(function (resp) {
         // confirm there is data received
-        console.log(food2forkQueryURL);
+        console.log(`food2fork results:`);
+        console.log(recipeQueryURL);
         console.log(resp);
 
+        // add the results to the HTML page
+        displayRecipes(resp.recipes);
     });
 }
 
+function displayRecipes(data) {
+    console.table(data);
+    for (let i = 0; i < 5; i++) {
+        // make the card div
+        let card = $("<div>").addClass("card");
+
+        // make the div for the image
+        let cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light");
+        let image = $("<img>").addClass("activator").attr("src", data[i].image_url);
+        cardImage.append(image);
+
+        // make the card content
+        let cardContent = $("<div>").addClass("card-content");
+        let title = $("<p>").addClass("card-title activator grey-text text-darken-4").text(data[i].title);
+        let link = $("<a>").attr("href", data[i].source_url).text("Click here!");
+        cardContent.append(title);
+        cardContent.append(link);
+
+        // put the content on the DOM
+        card.append(cardImage);
+        card.append(cardContent);
+        // card.append(cardReveal);
+        $("#recipe-results").append(card);
+    }
+}
+
+// function that checks to see if GPS capability is available
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // set the values of the location
+            myLat = parseFloat(position.coords.latitude);
+            myLong = parseFloat(position.coords.longitude);
+            $("#coord").html("Latitude: " + myLat + "<br>Longitude: " + myLong);
+        });
+    } else {
+        $("#coord").text("Geolocation is not supported by this browser.");
+    }
+}
+
+// document ready func.
 $(function () {
     $("#submit").on("click", function () {
+        // stop the default behavior
+        event.preventDefault();
+
         // grab the main-ingredient for the query
         mainIng = $("#main-ing").val().trim();
-        // addy= $("#addy").val().trim();
-        console.log(`Main Ingredient: ${mainIng}`);
-        eatStreetAjax();
+        // secIng = $("#sec-ing").val().trim();
+        // thirdIng = $("#third-ing").val().trim();
+        // fourthIng = $("#fourth-ing").val().trim();
+        // fifthIng = $("#fifth-ing").val().trim();
+        // sixIng = $("#six-ing").val().trim();
+        // address = $("#address").val().trim();
+        // cuisine = $("#cuisine").val().trim();
+        // dietRest = $("#diet-rest").val().trim();
+        restaurantAjax();
+        recipeAjax();
     });
+
+    $("#loc").on("click", getLocation);
 });
-
-// var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=by-chloe&location=boston";
-
-//          $.ajax({
-//             url: myurl,
-//             headers: {
-//              'Authorization':'Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-//          },
-//             method: 'GET',
-//             dataType: 'json',
-//             success: function(data){
-//                 // Grab the results from the API JSON return
-//                 var totalresults = data.total;
-//                 // If our results are greater than 0, continue
-//                 if (totalresults > 0){
-//                     // Display a header on the page with the number of results
-//                     $('#results').append('<h5>We discovered ' + totalresults + ' results!</h5>');
-//                     // Itirate through the JSON array of 'businesses' which was returned by the API
-//                     $.each(data.businesses, function(i, item) {
-//                         // Store each business's object in a variable
-//                         var id = item.id;
-//                         var alias = item.alias;
-//                         var phone = item.display_phone;
-//                         var image = item.image_url;
-//                         var name = item.name;
-//                         var rating = item.rating;
-//                         var reviewcount = item.review_count;
-//                         var address = item.location.address1;
-//                         var city = item.location.city;
-//                         var state = item.location.state;
-//                         var zipcode = item.location.zip_code;
-//                         // Append our result into our page
-//                         $('#results').append('<div id="' + id + '" style="margin-top:50px;margin-bottom:50px;"><img src="' + image + '" style="width:200px;height:150px;"><br>We found <b>' + name + '</b> (' + alias + ')<br>Business ID: ' + id + '<br> Located at: ' + address + ' ' + city + ', ' + state + ' ' + zipcode + '<br>The phone number for this business is: ' + phone + '<br>This business has a rating of ' + rating + ' with ' + reviewcount + ' reviews.</div>');
-//                   });
-//                 } else {
-//                     // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
-//                     $('#results').append('<h5>We discovered no results!</h5>');
-//                 }
-//             }
-//          });      
