@@ -2,31 +2,60 @@
 .body {
     background-color: #ff9800b5 !important;
 }
+/*Nav Bar Styling*/
 .sidenav {
     background-color: #ffb03c !important;
 }
 
+#sign-in {
+
+}
 /* navbar styling */
 .waves-effect {
+
     position: absolute;
     right: 0;
     margin-top: 4px !important;
 }
 .brand-logo {
     text-shadow: 2px 2px orange;
+   
+}
+/*Card Styling*/
+.card-image {
+    position: relative;
 }
 
 /* card styling */
 .card-title {
-    margin-bottom: 709px !important; 
     text-shadow: 2px 4px orange;
-    font-size: 80px !important;
+}
+/*Form Styling*/
+label {
+    font-size: 24px !important;
+    color: white !important;
 }
 #form-title {
+    font-size: 62px !important;
+    position: absolute;
+    text-align: center;
     line-height: 65px;
-    margin-bottom: 613px !important;
+    bottom: 82px;
+    left: -16px;
 }    
-   
+
+#aboutUs-title {
+    font-size: 86px !important;
+    position: absolute;
+    bottom: 607px;
+    left: -15px;
+}
+
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 /* footer styling */
 .page-footer {    
     text-align: center !important;
