@@ -12,8 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- My CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css">
 </head>
 
@@ -149,6 +152,9 @@
                         <span id="rest-title" class="card-title white-text">Restaurants:</span>
                         <br>
                         <hr>
+                        <br>
+                        <div id='map'></div>
+                        <br>
                         <ul id="restaurant-results" class="collection">
                             <!-- recipes go here -->
                         </ul>
@@ -195,7 +201,8 @@
             crossorigin="anonymous"></script>
         <!-- materialize js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+        <!-- Mapbox JS -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
         <!-- Sidebar script -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
