@@ -152,7 +152,7 @@ $(function () {
 // favorites logic, needs revision for variables
 
 // globals
-let myFaviteProp = [];
+let myFavourite = [];
 
 
 // favorites logic
@@ -162,22 +162,22 @@ $(this).on("click", ".favorites", function(event) {
 
         var propIDToAdd = $(this.closest("p").attr("id"));
 
-        var myFavriteProp = JSON.parse(localStorage.getItem("favProp"));
+        var myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
-        if (myFavriteProp == null){
-            myFavriteProp = [];
+        if (myFavourite == null){
+            myFavourite = [];
         }
-        if (myFavriteProp != null){
-            for (var i=0; i < myFavriteProp.length; i++) {
-                if (propIDToAdd == myFavrteProp[i]) {
+        if (myFavourite != null){
+            for (var i=0; i < myFavourite.length; i++) {
+                if (propIDToAdd == myFavourite[i]) {
                     alert("This property is already a favorite");
-                    myFavriteProp = [];
+                    myFavourite = [];
                 }
             }
         }
         // else statement
         myFavriteProp.push(propIDToAdd);
-        localStorage.setItem("favProp", JSON.stringify(myFavriteProp));
+        localStorage.setItem("favProp", JSON.stringify(myFavourite));
     }
     catch (e) {
         if (e==QUOTA_EXCEEDED_ERR) {
@@ -194,20 +194,20 @@ $(this).on("click", ".removeFavorites", function(event) {
 
         var propIDToRemove = $(this.closest("p").attr("id"));
 
-        var myFavriteProp = JSON.parse(localStorage.getItem("favProp"));
+        var myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
-        if (myFavriteProp != null){
-            for (var i=0; i < myFavriteProp.length; i++) {
-                if (propIDToRemove == myFavriteProp[i]) {
+        if (myFavourite != null){
+            for (var i=0; i < myFavourite.length; i++) {
+                if (propIDToRemove == myFavourite[i]) {
                     alert("This property is has been removed");
-                    delete myFavriteProp[i];
-                    localStorage.setItem("favProp", JSON.stringify(myFaviteProp));
-                    myFavriteProp =[];
+                    delete myFavourite[i];
+                    localStorage.setItem("favProp", JSON.stringify(myFavourite));
+                    myFavourite =[];
                 }
             }
         }
         
-        if (myFavriteProp == null){
+        if (myFavourite == null){
             alert("You have no favorite items")
         }
 });
@@ -215,15 +215,15 @@ $(this).on("click", ".removeFavorites", function(event) {
 $(this).on("click", ".viewFavorites", function(event) {
     console.log("restoring array from data from local storage");
 
-    myFaviteProp = JSON.parse(localStorage.getItem("favProp"));
+    myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
     var output = $("<ul>")
 
-    if (myFaviteProp != null) {
+    if (myFavourite != null) {
         for (var i = 0; data.properties.length; i++){
-            for (var j = 0; j<myFaviteProp.length; j++) {
+            for (var j = 0; j<myFavourite.length; j++) {
 
-                if (data.properties[i].id == myFaviteProp[j]) {
+                if (data.properties[i].id == myFavourite[j]) {
                     output += $("<h6><li>") + data.properties[i].bedrooms + " Bedrooms " + data.properties[i].type + $("</li></h5>") + "<img src=" + data.properties[i].picture + ">" + "<li><button> a href='" + data.properties[i].url + "'>Visitpage</a></button></li>"; 
                 }
             }
@@ -239,7 +239,7 @@ $(this).on("click", ".viewFavorites", function(event) {
 
     $("#placeholder").remove();
 
-    myFaviteProp = JSON.parse(localStorage.getItem("favProp"));
+    myFavourite = JSON.parse(localStorage.getItem("favProp"));
     localStorage.clear();
 
 });
