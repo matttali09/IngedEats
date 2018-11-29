@@ -1,6 +1,21 @@
+/* button styling */
+.g-signin2 {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+.data {
+    display: none;
+}
+
+/* color styling for body */
 body {
+    background-color: #ff9800b5;
+}
+.container {
     background-image: linear-gradient(to bottom right, lightgreen, green);
 }
+
+/* magrgin styling */
 #pic {
     margin-top: 12px;
     margin-bottom: 20px;

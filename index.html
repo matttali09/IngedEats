@@ -8,7 +8,7 @@
     <title>SnackAttack</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,8 +30,8 @@
                     <li class="active"><a href="surpriseme.html">Surprise Me</a></li>
                     <li class="active"><a href="results.html">My Results</a></li>
 
-                    <a class="waves-effect waves-light btn-large green darken-1" href="signin.html"><i class="material-icons right green darken-1">account_circle</i>Sign
-                        In</a>
+                    <a class="waves-effect waves-light btn-large green darken-1" id="sign-in" href="signin.html"><i
+                            class="material-icons right green darken-1">account_circle</i>SignIn</a>
                 </ul>
             </div>
         </nav>
@@ -53,20 +53,20 @@
                 <div class="card-content white-text">
                     <div class="card-image">
                         <img src="assets/images/AboutUsImage.jpg">
-                        <span class="card-title">About Us</span>
-                        <h5>“Can’t figure out what to eat? Snack it!”</h5>
-                        <br>
-                        <p class="flow-text">Hungry? Ever had one of those “the fridge is full, but I don’t know what
-                            to
-                            eat!” moments?
-                            Snack Attack is here to help! Simply enter the ingredients you have at hand and Snack
-                            Attack will give you delicious recipes using those ingredients. Decided you don’t feel like
-                            cooking after all? Snack Attack will also give you restaurants in the area where you can
-                            get those same foods without all the work (and all the dishes!). And finally, for the
-                            brave, Snack Attack has a “Surprise Me” option where you can enter your location and find
-                            restaurants in the area with a wide variety of food options! Try something new today, with
-                            Snack Attack!</p>
+                        <span class="card-title" id="aboutUs-title">About Us</span>
                     </div>
+                    <h5>“Can’t figure out what to eat? Snack it!”</h5>
+                    <br>
+                    <p class="flow-text">Hungry? Ever had one of those “the fridge is full, but I don’t know what
+                        to
+                        eat!” moments?
+                        Snack Attack is here to help! Simply enter the ingredients you have at hand and Snack
+                        Attack will give you delicious recipes using those ingredients. Decided you don’t feel like
+                        cooking after all? Snack Attack will also give you restaurants in the area where you can
+                        get those same foods without all the work (and all the dishes!). And finally, for the
+                        brave, Snack Attack has a “Surprise Me” option where you can enter your location and find
+                        restaurants in the area with a wide variety of food options! Try something new today, with
+                        Snack Attack!</p>
                 </div>
             </div>
         </div>
@@ -76,80 +76,69 @@
             <div class="col s12 m6">
                 <div class="card green darken-1">
                     <div class="card-content white-text">
+
                         <div class="card-image">
                             <img src="assets/images/IngredientsFormImage.jpg">
-                            <span class="card-title" id="form-title">What Are We Workin' With?</span>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input placeholder="Chicken" id="main-ing" type="text" class="validate">
-                                            <label for="main-ing">Main Ingredient</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input id="sec-ing" type="text" class="validate">
-                                            <label for="sec-ing">Second Ingredient</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input id="third-ing" type="text" class="validate">
-                                            <label for="third-ing">Third Ingredient</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input id="fourth-ing" type="text" class="validate">
-                                            <label for="fourth-ing">Fourth Ingredient</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input id="fifth-ing" type="text" class="validate">
-                                            <label for="fifth-ing">Fifth Ingredient</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input id="six-ing" type="text" class="validate">
-                                            <label for="six-ing">Sixth Ingredient</label>
-                                        </div>
+                            <span class="card-title" id="form-title">What Are<br>We<br>Workin' With?</span>
+                        </div>
+
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6 white-text">
+                                        <input id="main-ing" type="text">
+                                        <label for="main-ing">Main Ingredient</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="address" type="address" class="validate">
-                                            <label for="address">Address</label>
-                                        </div>
+                                    <div class="input-field col s6">
+                                        <input id="sec-ing" type="text">
+                                        <label for="sec-ing">Second Ingredient</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="cuisine" type="cuisine" class="validate">
-                                            <label for="cuisine">Type of Cuisine</label>
-                                        </div>
+                                    <div class="input-field col s6">
+                                        <input id="third-ing" type="text">
+                                        <label for="third-ing">Third Ingredient</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="col s12">
-                                            Dietary Restrictions
-                                            <div class="input-field inline">
-                                                <input id="diet-rest" type="diet-rest" class="validate">
-                                                <label for="diet-rest">Dietary Restrictions</label>
-                                                <span class="helper-text" data-error="wrong" data-success="right">Gluten
-                                                    free, Keto, Vegan</span>
-                                            </div>
-                                        </div>
+                                    <div class="input-field col s6">
+                                        <input id="fourth-ing" type="text">
+                                        <label for="fourth-ing">Fourth Ingredient</label>
                                     </div>
-                                    <div class="row">
-                                        <div class="col s12">
-                                            Allergies
-                                            <div class="input-field inline">
-                                                <input id="allergies" type="allergies" class="validate">
-                                                <label for="allergies">Allergies</label>
-                                                <span class="helper-text" data-error="wrong" data-success="right">Shellfish,
-                                                    Tree Nuts, Peanut Butter, Soy </span>
-                                            </div>
-                                        </div>
+                                    <div class="input-field col s6">
+                                        <input id="fifth-ing" type="text">
+                                        <label for="fifth-ing">Fifth Ingredient</label>
                                     </div>
-                            </div>
+                                    <div class="input-field col s6">
+                                        <input id="six-ing" type="text">
+                                        <label for="six-ing">Sixth Ingredient</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="allergies" type="text">
+                                    <label for="allergies">Allergies</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="cuisine" type="text">
+                                    <label for="cuisine">Type of Cuisine</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="diet-rest" type="text">
+                                    <label for="diet-rest">Dietary Restrictions</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="zip" type="text">
+                                    <label for="zip">Zip Code</label>
+                                </div>
+
+                                <button class="btn waves-effect btn-large center green darken-2" type="submit" name="action">Submit
+                                    <i class="material-icons right green darken-2">send</i>
+                                </button>
+                                <a class="waves-effect btn-large center green darken-2"><i class="material-icons right green darken-2">flare</i>Current Loc.</a>
+
+                                <p id="coord"></p>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
 
         <!-- Footer section -->
@@ -165,8 +154,11 @@
                                 <h5 class="white-text">FacebookProfile
                             </a></h5>
                             <h5 class="white-text"><span id="email-text">Email the website proprieters: </span>
-                                <a href="user_email"><span id="email">danielle.wood9988@gmail.com,</span></a> <a href="user_email"><span
-                                        id="email">matttaliancich09@gmail</span></a> <a href="user_email"><span id="email">winfield.huang@gmail.com</span></a>
+                                <a href="mailto:danielle.wood9988@gmail.com"><span id="email">danielle.wood9988@gmail.com,</span></a>
+                                <a href="mailto:matttaliancich09@gmail"><span id="email">matttaliancich09@gmail</span></a>
+                                <a href="mailto:winfield.huang@gmail.com"><span id="email">winfield.huang@gmail.com</span></a>
+                                <a href="mailto:danielle.wood9988@gmail.com,matttaliancich09@gmailwinfield.huang@gmail.com">Email
+                                    All</a>
                             </h5>
                         </div>
 

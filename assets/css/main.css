@@ -1,36 +1,60 @@
+/* body and nav color styling */
 .body {
     background-color: #ff9800b5 !important;
 }
+/*Nav Bar Styling*/
 .sidenav {
     background-color: #ffb03c !important;
 }
-.waves-effect {
+#sign-in {
     position: absolute;
     right: 0;
-
+    margin-top: 4px !important;
+}
+/* navbar styling */
+.waves-effect {
+    right: 0;
     margin-top: 4px !important;
 }
 .brand-logo {
     text-shadow: 2px 2px orange;
+   
 }
+/*Card Styling*/
+.card-image {
+    position: relative;
+}
+
+/* card styling */
 .card-title {
-    margin-bottom: 709px !important; 
     text-shadow: 2px 4px orange;
-    font-size: 80px !important;
+}
+/*Form Styling*/
+label {
+    font-size: 24px !important;
+    color: white !important;
 }
 #form-title {
+    font-size: 62px !important;
+    position: absolute;
+    text-align: center;
     line-height: 65px;
-    margin-bottom: 613px !important;
+    bottom: 82px;
+    left: -16px;
 }    
-   
-/* google signin styling */
-.g-signin2 {
-    margin-left: 500px;
-    margin-top: 200px;
+
+#aboutUs-title {
+    font-size: 86px !important;
+    position: absolute;
+    bottom: 0px;
+    left: -15px;
 }
-.data {
-    display: none;
+
+h5 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
+
 /* footer styling */
 .page-footer {    
     text-align: center !important;
@@ -60,6 +84,7 @@ footer div {
 }
 #our-name {
     margin-bottom: 6px!important;
+    text-shadow: 2px 2px orange;
 }
 
 /* link styling */
@@ -82,11 +107,14 @@ footer a:active {
     .card-title {
         margin-bottom: 690px !important;
     }
+    #form-title {
+        margin-bottom: 838px !important;
+    }
 }
 @media screen and (max-width: 768px){
-.card-title {
-margin-bottom: 751px !important;
-font-size: 52px !important;
+    .card-title {
+        margin-bottom: 751px !important;
+        font-size: 52px !important;
     }
 }
 @media screen and (max-width: 520px) {
@@ -94,10 +122,16 @@ font-size: 52px !important;
         text-align: justify;
         width: 67% !important;
     }
-    .card-title {
-        margin-bottom: 555px !important;
-        font-size: 54px !important;
-        margin-left: -15px;
+    #aboutUs-title {
+        margin-bottom: 0px !important;
+        font-size: 5em !important;
+        margin-left: -4px;
+    }
+    #form-title {
+        margin-bottom: 0px !important;
+        font-size: 2em !important;
+        margin-left: -1px;
+        line-height: 28px;
     }
     .right {
         margin: -53px;
