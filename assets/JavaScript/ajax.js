@@ -51,7 +51,7 @@ function displayRecipes(data) {
         card.append(cardImage);
         card.append(cardContent);
         column.append(card);
-        $("#recipe-results").append(column);
+        $("#recipe-results").prepend(column);
     }
 }
 
@@ -102,7 +102,7 @@ function displayRestaurants(data) {
         list.append(link);
         list.append(title);
         list.append(addr);
-        $("#restaurant-results").append(list);
+        $("#restaurant-results").prepend(list);
     }
 }
 
@@ -192,30 +192,33 @@ $(function () {
 
 
 
-
+// Favorites CODE =================================================
 
 // favorites logic, needs revision for variables
 
 // globals
-let myFavourites = {
+let myFavourite = {
     // recipe1 = [
     // ]
 };
 
-
 // favorites logic
 $(this).on("click", ".favorites", function(event) {
     try {
+        // turn button off
         $(this).attr("disabled", true);
         // going to need to store multiple attributes may become a global var
-        var propToAdd = [];
+
         var propIDToAdd = $(this.closest("li").attr("src").attr());
 
+        // initiate variable for local storage
         var myFavouriteRecipe = JSON.parse(localStorage.getItem("favProp"));
 
+        //if favorite is null dont change
         if (myFavouriteRecipe == null){
             myFavouriteRecipe = [];
         }
+        // if not null and the item is but already favorite
         if (myFavouriteRecipe != null){
             for (var i=0; i < myFavouriteRecipe.length; i++) {
                 if (propIDToAdd == myFavouriteRecipe[i]) {
@@ -228,6 +231,7 @@ $(this).on("click", ".favorites", function(event) {
         myFavouriteRecipe.push(propIDToAdd);
         myFavouriteRecipe.setItem("favProp", JSON.stringify(myFavourite));
     }
+    // catch errors statements
     catch (e) {
         if (e==QUOTA_EXCEEDED_ERR) {
             console.log("Error: local storage limit exceeds max");
@@ -238,13 +242,18 @@ $(this).on("click", ".favorites", function(event) {
         }
     }
 });
+// remove favorites function
 $(this).on("click", ".removeFavorites", function(event) {
+    //turn button off
         $(this).attr("disabled", true);
 
+        // grab property to remove
         var propIDToRemove = $(this.closest("p").attr("id"));
 
+        // premove from local storage
         var myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
+        // if my f property is in the storage remove it and alert that it has been removed
         if (myFavourite != null){
             for (var i=0; i < myFavourite.length; i++) {
                 if (propIDToRemove == myFavourite[i]) {
@@ -255,12 +264,13 @@ $(this).on("click", ".removeFavorites", function(event) {
                 }
             }
         }
-        
+        // if my favourite array is empty
         if (myFavourite == null){
             alert("You have no favorite items")
         }
 });
 
+// view favorites function
 $(this).on("click", ".viewFavorites", function(event) {
     console.log("restoring array from data from local storage");
 
@@ -283,8 +293,8 @@ $(this).on("click", ".viewFavorites", function(event) {
     $("#placeholder").html(output);
     
 });
-
-$(this).on("click", ".viewFavorites", function(event) { 
+// remove favorite item funciton
+$(this).on("click", ".removeFavorites", function(event) { 
 
     $("#placeholder").remove();
 
@@ -295,7 +305,7 @@ $(this).on("click", ".viewFavorites", function(event) {
 
 
 
-// sign in page logic
+// SignIn CODE =================================================
 
 function onSignIn(googleUser) {
   console.log("this is after signin press");
