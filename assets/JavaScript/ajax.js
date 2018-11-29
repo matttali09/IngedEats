@@ -192,30 +192,33 @@ $(function () {
 
 
 
-
+// Favorites CODE =================================================
 
 // favorites logic, needs revision for variables
 
 // globals
-let myFavourites = {
+let myFavourite = {
     // recipe1 = [
     // ]
 };
 
-var propToAdd = [];
 // favorites logic
 $(this).on("click", ".favorites", function(event) {
     try {
+        // turn button off
         $(this).attr("disabled", true);
         // going to need to store multiple attributes may become a global var
 
-        propToAdd = $(this.closest("li").attr("src").attr());
+        var propIDToAdd = $(this.closest("li").attr("src").attr());
 
+        // initiate variable for local storage
         var myFavouriteRecipe = JSON.parse(localStorage.getItem("favProp"));
 
+        //if favorite is null dont change
         if (myFavouriteRecipe == null){
             myFavouriteRecipe = [];
         }
+        // if not null and the item is but already favorite
         if (myFavouriteRecipe != null){
             for (var i=0; i < myFavouriteRecipe.length; i++) {
                 if (propIDToAdd == myFavouriteRecipe[i]) {
@@ -228,6 +231,7 @@ $(this).on("click", ".favorites", function(event) {
         myFavouriteRecipe.push(propIDToAdd);
         myFavouriteRecipe.setItem("favProp", JSON.stringify(myFavourite));
     }
+    // catch errors statements
     catch (e) {
         if (e==QUOTA_EXCEEDED_ERR) {
             console.log("Error: local storage limit exceeds max");
@@ -238,13 +242,18 @@ $(this).on("click", ".favorites", function(event) {
         }
     }
 });
+// remove favorites function
 $(this).on("click", ".removeFavorites", function(event) {
+    //turn button off
         $(this).attr("disabled", true);
 
+        // grab property to remove
         var propIDToRemove = $(this.closest("p").attr("id"));
 
+        // premove from local storage
         var myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
+        // if my 
         if (myFavourite != null){
             for (var i=0; i < myFavourite.length; i++) {
                 if (propIDToRemove == myFavourite[i]) {
@@ -283,8 +292,8 @@ $(this).on("click", ".viewFavorites", function(event) {
     $("#placeholder").html(output);
     
 });
-
-$(this).on("click", ".viewFavorites", function(event) { 
+// remove favorite item funciton
+$(this).on("click", ".removeFavorites", function(event) { 
 
     $("#placeholder").remove();
 
@@ -295,7 +304,7 @@ $(this).on("click", ".viewFavorites", function(event) {
 
 
 
-// sign in page logic
+// SignIn CODE =================================================
 
 function onSignIn(googleUser) {
   console.log("this is after signin press");
