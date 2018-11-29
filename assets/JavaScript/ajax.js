@@ -146,6 +146,11 @@ $(function () {
         // grab the main-ingredient for the query
         mainIng = $("#main-ing").val().trim();
 
+        // show the results area
+        $("#recipes").css("display", "block");
+        $("#restaurants").css("display", "block");
+
+        // run the ajax calls
         restaurantAjax();
         recipeAjax();
     });
