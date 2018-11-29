@@ -68,7 +68,7 @@ footer a:active {
 }
 
 @media screen and (max-width: 520px) {
-    .brand-logo {
+    #nav-logo{
         text-align: justify;
         width: 68% !important;
     }
@@ -79,9 +79,12 @@ footer a:active {
         font-size: 2em;
         width: 73% !important;
     }
-    .brand-logo {
+    #nav-logo {
         text-align: justify;
         width: 71% !important;
+    }
+    #our-name {
+        width: 15% !important;
     }
 }
 
@@ -90,7 +93,7 @@ footer a:active {
         font-size: 2em;
         width: 86% !important;
     }
-    .brand-logo {
+    #nav-logo {
         text-align: justify;
         width: 79% !important;
     }
