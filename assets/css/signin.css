@@ -1,3 +1,8 @@
+/* navbar fix */
+nav ul a.btn>.material-icons, nav ul a.btn-large>.material-icons, nav ul a.btn-small>.material-icons, nav ul a.btn-large>.material-icons, nav ul a.btn-flat>.material-icons, nav ul a.btn-floating>.material-icons {
+    line-height: 24px;
+}
+
 /* button styling */
 
 .g-signin2 {
@@ -12,7 +17,7 @@
 body {
     background-color: #ff9800b5;
 }
-.container {
+.data {
     background-image: linear-gradient(to bottom right, lightgreen, green);
 }
 
