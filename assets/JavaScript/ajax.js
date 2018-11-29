@@ -51,7 +51,7 @@ function displayRecipes(data) {
         card.append(cardImage);
         card.append(cardContent);
         column.append(card);
-        $("#recipe-results").append(column);
+        $("#recipe-results").prepend(column);
     }
 }
 
@@ -102,7 +102,7 @@ function displayRestaurants(data) {
         list.append(link);
         list.append(title);
         list.append(addr);
-        $("#restaurant-results").append(list);
+        $("#restaurant-results").prepend(list);
     }
 }
 
@@ -253,7 +253,7 @@ $(this).on("click", ".removeFavorites", function(event) {
         // premove from local storage
         var myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
-        // if my 
+        // if my f property is in the storage remove it and alert that it has been removed
         if (myFavourite != null){
             for (var i=0; i < myFavourite.length; i++) {
                 if (propIDToRemove == myFavourite[i]) {
@@ -264,12 +264,13 @@ $(this).on("click", ".removeFavorites", function(event) {
                 }
             }
         }
-        
+        // if my favourite array is empty
         if (myFavourite == null){
             alert("You have no favorite items")
         }
 });
 
+// view favorites function
 $(this).on("click", ".viewFavorites", function(event) {
     console.log("restoring array from data from local storage");
 
