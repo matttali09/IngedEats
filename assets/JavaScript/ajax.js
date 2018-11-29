@@ -122,6 +122,50 @@ function getLocation() {
     }
 }
 
+
+// surprise me array of top 20 ingredients and function
+topIngredients [
+    "chicken",
+    "Brown+Rice",
+    "Paella",
+    "Tomatoes",
+    "Sausage",
+    "onions",
+    "green+pepper",
+    "pepper",
+    "beans",
+    "corn", 
+    "beef",
+    "garlic"
+];
+function surpriseMe() {
+    // for (let i = 0; i < topIngredients.length; i++) {
+    var item = topIngredients[Math.floor(Math.random()*topIngredients.length)];
+    return item
+}
+
+// attach suprise me to a suprise me button
+$(function () {
+    //needs button id
+    $("#surprise-me").on("click", function (event) {
+        // stop the default behavior
+        event.preventDefault();
+
+        // grab the main-ingredient for the query
+        mainIng = surpriseMe().val().trim();
+
+        // show the results area
+        $("#recipes").css("display", "block");
+        $("#restaurants").css("display", "block");
+
+        // run the ajax calls
+        restaurantAjax();
+        recipeAjax();
+    });
+
+    $("#loc").on("click", getLocation);
+});
+
 // MAIN CODE =================================================
 
 // document ready func.
