@@ -3,10 +3,13 @@ body {
     background-color: #ff9800b5;
     font-size: 16px;
 }
+#map {
+    position: relative; width: 100%; height: 20rem;
+}
 
 /* Class styling =================================================*/
 .brand-logo {
-    text-shadow: 2px 2px orange;
+    text-shadow: 2px 2px #ff9800b5
 }
 
 /* label color */
@@ -34,7 +37,7 @@ body {
 
 #about-title, #form-title, #recipe-title, #rest-title {
     font-size: 4rem;
-    text-shadow: 2px 4px orange;
+    text-shadow: 2px 4px #ff9800b5;
 }
 
 #recipes, #restaurants {
@@ -57,7 +60,41 @@ footer a:hover {
 footer a:active {
     color: red;
 }
+/* media queries */
+@media screen and (max-width: 1126px){
+    #form-title {
+        font-size: 3em;
+    }
+}
 
+@media screen and (max-width: 520px) {
+    .brand-logo {
+        text-align: justify;
+        width: 68% !important;
+    }
+}
+
+@media screen and (max-width: 360px){
+    #form-title {
+        font-size: 2em;
+        width: 73% !important;
+    }
+    .brand-logo {
+        text-align: justify;
+        width: 71% !important;
+    }
+}
+
+@media screen and (max-width: 320px){
+    #form-title {
+        font-size: 2em;
+        width: 86% !important;
+    }
+    .brand-logo {
+        text-align: justify;
+        width: 79% !important;
+    }
+}
 /* navbar styling */
 /* .waves-effect {
     right: 0;
