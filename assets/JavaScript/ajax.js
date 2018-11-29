@@ -224,7 +224,7 @@ $(this).on("click", ".viewFavorites", function(event) {
             for (var j = 0; j<myFavourite.length; j++) {
 
                 if (data.properties[i].id == myFavourite[j]) {
-                    output += $("<h6><li>") + data.properties[i].bedrooms + " Bedrooms " + data.properties[i].type + $("</li></h5>") + "<img src=" + data.properties[i].picture + ">" + "<li><button> a href='" + data.properties[i].url + "'>Visitpage</a></button></li>"; 
+                    output += "<h6><li>" + data.properties[i].bedrooms + " Bedrooms " + data.properties[i].type + $("</li></h5>") + "<img src=" + data.properties[i].picture + ">" + "<li><button> a href='" + data.properties[i].url + "'>Visitpage</a></button></li>"; 
                 }
             }
         }
