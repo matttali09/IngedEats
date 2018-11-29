@@ -202,14 +202,14 @@ let myFavourites = {
     // ]
 };
 
-
+var propToAdd = [];
 // favorites logic
 $(this).on("click", ".favorites", function(event) {
     try {
         $(this).attr("disabled", true);
         // going to need to store multiple attributes may become a global var
-        var propToAdd = [];
-        var propIDToAdd = $(this.closest("li").attr("src").attr());
+
+        propToAdd = $(this.closest("li").attr("src").attr());
 
         var myFavouriteRecipe = JSON.parse(localStorage.getItem("favProp"));
 
