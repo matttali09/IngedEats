@@ -13,7 +13,7 @@
     <!--Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css">
 </head>
 
@@ -23,164 +23,177 @@
     <div id="nav-bar">
         <nav>
             <div class="nav-wrapper green">
-                <a href="#!" class="brand-logo center">Snack<i class="material-icons">restaurant_menu</i>Attack<i class="material-icons right">restaurant_menu</i></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons left">menu</i></a>
-                <ul class="left hide-on-med-and-down">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li class="active"><a href="surpriseme.html">Surprise Me</a></li>
-                    <li class="active"><a href="results.html">My Results</a></li>
+                <!-- This is the logo -->
 
-                    <a class="waves-effect waves-light btn-large green darken-1" id="sign-in" href="signin.html"><i
-                            class="material-icons right green darken-1">account_circle</i>SignIn</a>
+                <span class="brand-logo center">Snack<i class="material-icons">restaurant_menu</i>Attack<i class="material-icons right">restaurant_menu</i></span>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons left">menu</i></a>
+                <!-- This is the top navigation menu -->
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="favorites.html">Your Favorites</a></li>
+                    <!-- Top right sign-in button -->
+                    <li><a class="btn btn-flat waves-effect waves-light green darken-1" id="sign-in" href="signin.html"><i
+                                class="material-icons right green darken-1">account_circle</i>Sign In</a></li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Dropdown bar -->
-        <ul class="sidenav" id="mobile-demo">
-            <li class="active green"><a href="index.html">Home</a></li>
-            <li class="active green"><a href="surpriseme.html">Surprise Me</a></li>
-            <li class="active green"><a href="results.html">Results</a></li>
+        <!-- sidebar that opens when the screen is smaller and the menu button is clicked -->
+        <ul class="sidenav orange" id="mobile-demo">
             <li><a href="signin.html" class="active green darken-1"><i class="material-icons">account_circle</i>Sign In</a></li>
+            <li class="active green"><a href="index.html">Home</a></li>
+            <!-- <li class="active green"><a href="surpriseme.html">Surprise Me</a></li> -->
+            <li class="active green"><a href="favorites.html">Your Favorites</a></li>
         </ul>
     </div>
     <br>
+    <!-- Main content section -->
+    <div class="container">
 
-    <!-- About us section -->
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card green darken-1">
-                <div class="card-content white-text">
+        <div class="row">
+            <!-- About us section -->
+            <div id="about-us" class="col s12 m12 l6">
+                <div class="card green darken-1">
+                    <!-- Card image -->
                     <div class="card-image">
                         <img src="assets/images/AboutUsImage.jpg">
-                        <span class="card-title" id="aboutUs-title">About Us</span>
+                        <span id="about-title" class="card-title">About Us</span>
                     </div>
-                    <h5>“Can’t figure out what to eat? Snack it!”</h5>
-                    <br>
-                    <p class="flow-text">Hungry? Ever had one of those “the fridge is full, but I don’t know what
-                        to
-                        eat!” moments?
-                        Snack Attack is here to help! Simply enter the ingredients you have at hand and Snack
-                        Attack will give you delicious recipes using those ingredients. Decided you don’t feel like
-                        cooking after all? Snack Attack will also give you restaurants in the area where you can
-                        get those same foods without all the work (and all the dishes!). And finally, for the
-                        brave, Snack Attack has a “Surprise Me” option where you can enter your location and find
-                        restaurants in the area with a wide variety of food options! Try something new today, with
-                        Snack Attack!</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ingredients form -->
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card green darken-1">
                     <div class="card-content white-text">
+                        <!-- Quote -->
+                        <p class="flow-text center">“Can’t figure out what to eat? Snack it!”</p>
+                        <hr>
+                        <br>
+                        <!-- Description -->
+                        <p>Hungry? Ever had one of those “the fridge is full, but I don’t know
+                            what
+                            to eat!” moments? Snack Attack is here to help! Simply enter the ingredients you have
+                            at
+                            hand and Snack Attack will give you delicious recipes using those ingredients. Decided
+                            you
+                            don’t feel like cooking after all? Snack Attack will also give you restaurants in the
+                            area.
+                            Try something new today, with Snack Attack!</p>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="card-image">
-                            <img src="assets/images/IngredientsFormImage.jpg">
-                            <span class="card-title" id="form-title">What Are<br>We<br>Workin' With?</span>
-                        </div>
-
-                        <div class="row">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s6 white-text">
-                                        <input id="main-ing" type="text">
-                                        <label for="main-ing">Main Ingredient</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="sec-ing" type="text">
-                                        <label for="sec-ing">Second Ingredient</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="third-ing" type="text">
-                                        <label for="third-ing">Third Ingredient</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="fourth-ing" type="text">
-                                        <label for="fourth-ing">Fourth Ingredient</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="fifth-ing" type="text">
-                                        <label for="fifth-ing">Fifth Ingredient</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="six-ing" type="text">
-                                        <label for="six-ing">Sixth Ingredient</label>
-                                    </div>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="allergies" type="text">
-                                    <label for="allergies">Allergies</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="cuisine" type="text">
-                                    <label for="cuisine">Type of Cuisine</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="diet-rest" type="text">
-                                    <label for="diet-rest">Dietary Restrictions</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="zip" type="text">
-                                    <label for="zip">Zip Code</label>
-                                </div>
-
-                                <button class="btn waves-effect btn-large center green darken-2" type="submit" name="action">Submit
-                                    <i class="material-icons right green darken-2">send</i>
-                                </button>
-                                <a class="waves-effect btn-large center green darken-2"><i class="material-icons right green darken-2">flare</i>Current Loc.</a>
-
+            <!-- Ingredients form -->
+            <div id="ingredients" class="col s12 m12 l6">
+                <div class="card green darken-1">
+                    <!-- Card image -->
+                    <div class="card-image">
+                        <img src="assets/images/IngredientsFormImage.jpg">
+                        <span class="card-title flow-text" id="form-title">What Are We<br>Workin' With?</span>
+                    </div>
+                    <!-- Form inputs -->
+                    <div class="card-content white-text">
+                        <form>
+                            <p class="flow-text">1. Where are you?</p>
+                            <hr>
+                            <br>
+                            <!-- Location button -->
+                            <div class="center">
+                                <button id="loc" class="btn-flat waves-effect green darken-2"><i class="material-icons right green darken-2">flare</i>Current
+                                    Location</button>
                                 <p id="coord"></p>
-                            </form>
+                            </div>
+                            <br>
+                            <p class="flow-text">2. What do you want?</p>
+                            <hr>
+                            <!-- Ingredients input  -->
+                            <div class="input-field">
+                                <!-- <i class="material-icons prefix">kitchen</i> -->
+                                <input id="main-ing" type="text" class="validate">
+                                <label for="main-ing">Ingredients go here...</label>
+                                <span class="helper-text" data-error="wrong" data-success="right">Separate ingredients
+                                    with a space</span>
+                            </div>
+                            <br>
+                            <p class="flow-text">3. Let's go!</p>
+                            <hr>
+                            <br>
+                            <!-- Submit button -->
+                            <div class="center">
+                                <button id="submit" class="btn-flat btn-large waves-effect orange darken-2" type="submit">Submit<i
+                                        class="material-icons right orange darken-2">send</i></button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Recipes results section -->
+            <div class="col s12">
+                <div id="recipes" class="card green darken-1">
+                    <div class="card-content white-text">
+                        <span id="recipe-title" class="card-title titles">Recipes:</span>
+                        <br>
+                        <hr>
+                        <div id="recipe-results" class="row">
+                            <!-- recipes go here -->
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Restaurants results section -->
+            <div class="col s12">
+                    <div id="restaurants" class="card green darken-1">
+                        <div class="card-content">
+                            <span id="rest-title" class="card-title white-text">Restaurants:</span>
+                            <br>
+                            <hr>
+                            <ul id="restaurant-results" class="collection">
+                                <!-- recipes go here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- End of the row -->
+        </div>
+        <!-- End of the container -->
+    </div>
+
+    <!-- Footer section -->
+    <footer class="page-footer green">
+        <div class="container">
+            <div class="row">
+                <div id="our-name">
+                    <h5 class="white-text brand-logo"><i class="material-icons">restaurant_menu</i> Full Snack
+                        Developers <i class="material-icons">restaurant_menu</i>
+                    </h5>
+                </div>
+                <div>
+                    <div id="footer green" id="our-name">
+                        <h5 class="white-text"><span id="email-text">Email the website proprieters: </span>
+                            <a href="mailto:danielle.wood9988@gmail.com"><span id="email">danielle.wood9988@gmail.com,</span></a>
+                            <a href="mailto:matttaliancich09@gmail"><span id="email">matttaliancich09@gmail</span></a>
+                            <a href="mailto:winfield.huang@gmail.com"><span id="email">winfield.huang@gmail.com</span></a>
+                            <a href="mailto:danielle.wood9988@gmail.com,matttaliancich09@gmailwinfield.huang@gmail.com">Email
+                                All</a>
+                        </h5>
+                    </div>
+
                 </div>
             </div>
         </div>
+        <div class="footer-copyright green darken-1">
+            <div class="container">© 2018 Copyright</div>
+        </div>
+    </footer>
 
-
-        <!-- Footer section -->
-        <footer class="page-footer green">
-            <div class="container">
-                <div class="row">
-                    <div id="our-name">
-                        <h5 class="white-text"><i class="material-icons">restaurant_menu</i> Full Snack Developers <i
-                                class="material-icons">restaurant_menu</i> </h5>
-                    </div>
-                    <div>
-                        <div id="footer green" id="our-name"><a href="">
-                                <h5 class="white-text">FacebookProfile
-                            </a></h5>
-                            <h5 class="white-text"><span id="email-text">Email the website proprieters: </span>
-                                <a href="mailto:danielle.wood9988@gmail.com"><span id="email">danielle.wood9988@gmail.com,</span></a>
-                                <a href="mailto:matttaliancich09@gmail"><span id="email">matttaliancich09@gmail</span></a>
-                                <a href="mailto:winfield.huang@gmail.com"><span id="email">winfield.huang@gmail.com</span></a>
-                                <a href="mailto:danielle.wood9988@gmail.com,matttaliancich09@gmailwinfield.huang@gmail.com">Email
-                                    All</a>
-                            </h5>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright green darken-1">
-                <div class="container">
-                    © 2018 Copyright
-                </div>
-            </div>
-        </footer>
-
+    <!-- Scripts here -->
+    <div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-
+        <!-- materialize js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-        <!-- link our materialize js -->
+        <!-- Sidebar script -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var elems = document.querySelectorAll('.sidenav');
@@ -193,7 +206,7 @@
 
         <!-- link our JavaScript files -->
         <script src="assets/JavaScript/ajax.js"></script>
-        <script src="assets/JavaScript/main.js"></script>
+    </div>
 </body>
 
 </html>

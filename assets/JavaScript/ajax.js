@@ -1,22 +1,59 @@
-/* Form ID's
-#main-ing
-#sec-ing .... up to six ingredients
-#cuisine
-#addy
-#geo-loc
-#submit */
+console.log("This file is connected.");
 
 // variables ===========================================
 let mainIng = "";
-let secIng = "";
-let thirdIng = "";
-let fourthIng = "";
-let fifthIng = "";
-let sixthIng = "";
 let myLat;
 let myLong;
-let address = "3024+Meadow+Lake+Ave.,+Largo,+FL";
-let cuisine = "";
+
+function recipeAjax() {
+    let recipeAPIkey = "7872e935a7940ef06e573678577b1f1a";
+    let recipeQueryURL = "https://www.food2fork.com/api/search?key=" + recipeAPIkey + "&q=" + mainIng + "&sort=r&count=6";
+
+    $.ajax({
+        url: recipeQueryURL,
+        method: "GET",
+        dataType: "json"
+    }).then(function (resp) {
+        // confirm there is data received
+        console.log(`food2fork results:`);
+        console.log(recipeQueryURL);
+        console.log(resp);
+
+        // add the results to the HTML page
+        displayRecipes(resp.recipes);
+    });
+}
+
+function displayRecipes(data) {
+    console.table(data);
+    for (let i = 0; i < data.length; i++) {
+        // make the card div
+        let column = $("<div>").addClass("col s6 m6");
+        let card = $("<div>").addClass("card medium");
+
+        // make the div for the image
+        let cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light");
+        let image = $("<img>").addClass("activator").attr("src", data[i].image_url);
+        let fav = $("<a>").addClass("btn-floating halfway-fab waves-effect waves-light red").attr("href", "#");
+        let favicon = $("<i>").addClass("material-icons favorites").text("star");
+        fav.append(favicon);
+        cardImage.append(image);
+        cardImage.append(fav);
+
+        // make the card content
+        let cardContent = $("<div>").addClass("card-content");
+        let title = $("<p>").addClass("card-title activator grey-text text-darken-4").text(data[i].title);
+        let link = $("<a>").attr("href", data[i].source_url).text("Get the recipe!");
+        cardContent.append(title);
+        cardContent.append(link);
+
+        // put the content on the DOM
+        card.append(cardImage);
+        card.append(cardContent);
+        column.append(card);
+        $("#recipe-results").append(column);
+    }
+}
 
 function restaurantAjax() {
     let clientID = "2EQ443BHONMJJ0ZGUNR4ZWXOJQPGBRWDWVV55UBLPSOS5B3E";
@@ -41,7 +78,7 @@ function displayRestaurants(data) {
     console.table(data);
 
     // dynamically create the content for each result
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < data.length; i++) {
         // get values for the listing
         let name = data[i].venue.name;
         let venueID = data[i].venue.id;
@@ -55,9 +92,13 @@ function displayRestaurants(data) {
         let icon = $("<i>").addClass("material-icons circle green").text("map");
         let title = $("<span>").addClass("title").html("<strong>" + name + "</strong>");
         let addr = $("<p>").html(address[0] + "<br>" + address[1] + "<br>" + address[2]);
+        let fav = $("<a>").addClass("secondary-content").attr("href", "#");
+        let favicon = $("<i>").addClass("material-icons").text("star");
 
         // combine elements and add to the DOM
+        fav.append(favicon);
         link.append(icon);
+        list.append(fav);
         list.append(link);
         list.append(title);
         list.append(addr);
@@ -65,53 +106,10 @@ function displayRestaurants(data) {
     }
 }
 
-function recipeAjax() {
-    let recipeAPIkey = "7872e935a7940ef06e573678577b1f1a";
-    let recipeQueryURL = "https://www.food2fork.com/api/search?key=" + recipeAPIkey + "&q=" + mainIng + "&sort=r";
-
-    $.ajax({
-        url: recipeQueryURL,
-        method: "GET",
-        dataType: "json"
-    }).then(function (resp) {
-        // confirm there is data received
-        console.log(`food2fork results:`);
-        console.log(recipeQueryURL);
-        console.log(resp);
-
-        // add the results to the HTML page
-        displayRecipes(resp.recipes);
-    });
-}
-
-function displayRecipes(data) {
-    console.table(data);
-    for (let i = 0; i < 5; i++) {
-        // make the card div
-        let card = $("<div>").addClass("card");
-
-        // make the div for the image
-        let cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light");
-        let image = $("<img>").addClass("activator").attr("src", data[i].image_url);
-        cardImage.append(image);
-
-        // make the card content
-        let cardContent = $("<div>").addClass("card-content");
-        let title = $("<p>").addClass("card-title activator grey-text text-darken-4").text(data[i].title);
-        let link = $("<a>").attr("href", data[i].source_url).text("Click here!");
-        cardContent.append(title);
-        cardContent.append(link);
-
-        // put the content on the DOM
-        card.append(cardImage);
-        card.append(cardContent);
-        // card.append(cardReveal);
-        $("#recipe-results").append(card);
-    }
-}
-
 // function that checks to see if GPS capability is available
 function getLocation() {
+    event.preventDefault();
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             // set the values of the location
@@ -124,22 +122,22 @@ function getLocation() {
     }
 }
 
+// MAIN CODE =================================================
+
 // document ready func.
 $(function () {
-    $("#submit").on("click", function () {
+    $("#submit").on("click", function (event) {
         // stop the default behavior
         event.preventDefault();
 
         // grab the main-ingredient for the query
         mainIng = $("#main-ing").val().trim();
-        // secIng = $("#sec-ing").val().trim();
-        // thirdIng = $("#third-ing").val().trim();
-        // fourthIng = $("#fourth-ing").val().trim();
-        // fifthIng = $("#fifth-ing").val().trim();
-        // sixIng = $("#six-ing").val().trim();
-        // address = $("#address").val().trim();
-        // cuisine = $("#cuisine").val().trim();
-        // dietRest = $("#diet-rest").val().trim();
+
+        // show the results area
+        $("#recipes").css("display", "block");
+        $("#restaurants").css("display", "block");
+
+        // run the ajax calls
         restaurantAjax();
         recipeAjax();
     });
