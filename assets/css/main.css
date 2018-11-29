@@ -6,7 +6,7 @@ body {
 
 /* Class styling =================================================*/
 .brand-logo {
-    text-shadow: 2px 2px orange;
+    text-shadow: 2px 2px #ff9800b5
 }
 
 /* label color */
@@ -34,7 +34,7 @@ body {
 
 #about-title, #form-title, #recipe-title, #rest-title {
     font-size: 4rem;
-    text-shadow: 2px 4px orange;
+    text-shadow: 2px 4px #ff9800b5;
 }
 
 #recipes, #restaurants {
@@ -56,6 +56,33 @@ footer a:hover {
 
 footer a:active {
     color: red;
+}
+
+/* media queries */
+@media screen and (max-width: 952px){
+    #form-title {
+        font-size: 4em;
+    }
+}
+@media screen and (max-width: 768px){
+    .card-title {
+    }
+}
+@media screen and (max-width: 520px) {
+    .brand-logo {
+        text-align: justify;
+        width: 67% !important;
+    }
+    #aboutUs-title {
+        margin-left: -4px;
+    }
+    #form-title {
+        margin-left: -1px;
+        line-height: 28px;
+    }
+    .right {
+        margin: -53px;
+    }
 }
 
 /* navbar styling */
