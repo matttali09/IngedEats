@@ -1,38 +1,20 @@
-.body {
-    background-color: #ff9800b5 !important;
+/* Element styling ===============================================*/
+body {
+    background-color: #ff9800b5;
+    font-size: 16px;
 }
-.sidenav {
-    background-color: #ffb03c !important;
-}
-.waves-effect {
-    position: absolute;
-    right: 0;
 
-    margin-top: 4px !important;
-}
+/* Class styling =================================================*/
 .brand-logo {
     text-shadow: 2px 2px orange;
 }
-.card-title {
-    margin-bottom: 709px !important; 
-    text-shadow: 2px 4px orange;
-    font-size: 80px !important;
+
+/* label color */
+.input-field label {
+    color: #fff;
 }
-#form-title {
-    line-height: 65px;
-    margin-bottom: 613px !important;
-}    
-   
-/* google signin styling */
-.g-signin2 {
-    margin-left: 500px;
-    margin-top: 200px;
-}
-.data {
-    display: none;
-}
-/* footer styling */
-.page-footer {    
+
+.page-footer {
     text-align: center !important;
     bottom: 0;
     width: 100%;
@@ -42,58 +24,104 @@
 
     text-align: center;
 }
-.footer-copyright {
-    text-align: center !important;
-    font-size: 26px;
-    min-height: 4em;
+
+/* ID styling =====================================================*/
+#sign-in {
+    position: absolute;
+    right: 0;
+    margin-top: 1rem;
+}
+
+#about-title, #form-title, #recipe-title, #rest-title {
+    font-size: 4rem;
+    text-shadow: 2px 4px orange;
+}
+
+#recipes, #restaurants {
+    display: none;
 }
 
 /* link styling */
-#footer a:link {
+footer a:link {
     color: white;
 }
-#footer a:visited {
+
+footer a:visited {
     color: purple;
 }
-#footer a:hover {
+
+footer a:hover {
     color: green;
 }
-#footer a:active {
+
+footer a:active {
     color: red;
-
 }
 
-/* media queries */
-@media screen and (max-width: 985px) {
-    .card-title {
-        margin-bottom: 690px !important;
-    }
-    footer {
-        height: 118px;
-    }
-}
-@media screen and (max-width: 768px){
-.card-title {
-margin-bottom: 751px !important;
-font-size: 52px !important;
-    }
-}
-@media screen and (max-width: 619px) {
-    footer {
-        height: 198px;
-    }
-}
-@media screen and (max-width: 520px) {
-    .brand-logo {
-        text-align: justify;
-        width: 67% !important;
-    }
-    .card-title {
-        margin-bottom: 555px !important;
-        font-size: 54px !important;
-        margin-left: -15px;
-    }
-    .right {
-        margin: -53px;
-    }
-}
+/* navbar styling */
+/* .waves-effect {
+    right: 0;
+    margin-top: 4px !important;
+} */
+
+/*Card Styling*/
+/* .card-image {
+    position: relative;
+} */
+
+/* footer div {
+    margin-top: 0!important;
+    margin-bottom: 5px!important;
+} */
+
+/* #footer {
+    margin-top: 0;
+    margin-bottom: 5px!important;
+} */
+
+/* #form-title {
+    font-size: 62px !important;
+    position: absolute;
+    text-align: center;
+    line-height: 65px;
+    bottom: 82px;
+    left: -16px;
+}     */
+
+/* #aboutUs-title {
+    font-size: 86px !important;
+    position: absolute;
+    bottom: 0px;
+    left: -15px;
+} */
+
+/* label focus color */
+/* .input-field input[type=text]:focus+label {
+    color: #fff;
+} */
+
+/* label underline focus color */
+/* .input-field input[type=text]:focus {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+} */
+
+/* valid color */
+/* .input-field input[type=text].valid {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+} */
+
+/* invalid color */
+/* .input-field input[type=text].invalid {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+} */
+
+/* icon prefix focus color */
+/* .input-field .prefix.active {
+    color: #fff;
+} */

@@ -13,17 +13,18 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/signin.css">
 </head>
 
 <body>
     <div class="container">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
             <div class="data">
-                <p>Profile</p>
-                <img id="pic" class="img-circle" src="" alt="" width="100" height="100">
-                <p>Email Address</p>
-                <p id="emailAdd" class="alert alert-danger"></p>
+                <p>Profile:</p>
+                <img id="pic" class="img-circle" src="" alt="profile picture" width="100" height="100">
+                <p>Email Address:</p>
+                <p id="emailAdd" class="alert alert-success"></p>
+                <button id="go-back" class="btn btn-success">Go Back to IngedEats!</button>
                 <button onclick="signOut()" class="btn btn-danger">Signout</button>
             </div>
     </div>
