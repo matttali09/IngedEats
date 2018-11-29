@@ -32,25 +32,15 @@ body {
     margin-top: 1rem;
 }
 
-#about-title {
+#about-title, #form-title, #recipe-title, #rest-title {
     font-size: 4rem;
     text-shadow: 2px 4px orange;
 }
 
-#form-title {
-    font-size: 3rem;
-    text-shadow: 2px 4px orange;
+#recipes, #restaurants {
+    display: none;
 }
 
-#recipe-title {
-    font-size: 3rem;
-    text-shadow: 2px 4px orange;
-}
-
-#rest-title {
-    font-size: 3rem;
-    text-shadow: 2px 4px orange;
-}
 /* link styling */
 footer a:link {
     color: white;
