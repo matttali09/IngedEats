@@ -124,7 +124,7 @@ function getLocation() {
 
 
 // surprise me array of top 20 ingredients and function
-topIngredients [
+let topIngredients = [
     "chicken",
     "Brown+Rice",
     "Paella",
@@ -136,7 +136,8 @@ topIngredients [
     "beans",
     "corn", 
     "beef",
-    "garlic"
+    "garlic",
+    "soy"
 ];
 function surpriseMe() {
     // for (let i = 0; i < topIngredients.length; i++) {
@@ -152,7 +153,7 @@ $(function () {
         event.preventDefault();
 
         // grab the main-ingredient for the query
-        mainIng = surpriseMe().val().trim();
+        mainIng = surpriseMe();
 
         // show the results area
         $("#recipes").css("display", "block");
@@ -196,32 +197,36 @@ $(function () {
 // favorites logic, needs revision for variables
 
 // globals
-let myFavourite = [];
+let myFavourites = {
+    // recipe1 = [
+    // ]
+};
 
 
 // favorites logic
 $(this).on("click", ".favorites", function(event) {
     try {
         $(this).attr("disabled", true);
+        // going to need to store multiple attributes may become a global var
+        var propToAdd = [];
+        var propIDToAdd = $(this.closest("li").attr("src").attr());
 
-        var propIDToAdd = $(this.closest("p").attr("id"));
+        var myFavouriteRecipe = JSON.parse(localStorage.getItem("favProp"));
 
-        var myFavourite = JSON.parse(localStorage.getItem("favProp"));
-
-        if (myFavourite == null){
-            myFavourite = [];
+        if (myFavouriteRecipe == null){
+            myFavouriteRecipe = [];
         }
-        if (myFavourite != null){
-            for (var i=0; i < myFavourite.length; i++) {
-                if (propIDToAdd == myFavourite[i]) {
-                    alert("This property is already a favorite");
-                    myFavourite = [];
+        if (myFavouriteRecipe != null){
+            for (var i=0; i < myFavouriteRecipe.length; i++) {
+                if (propIDToAdd == myFavouriteRecipe[i]) {
+                    alert("This item is already a favorite");
+                    myFavouriteRecipe = [];
                 }
             }
         }
         // else statement
-        myFavriteProp.push(propIDToAdd);
-        localStorage.setItem("favProp", JSON.stringify(myFavourite));
+        myFavouriteRecipe.push(propIDToAdd);
+        myFavouriteRecipe.setItem("favProp", JSON.stringify(myFavourite));
     }
     catch (e) {
         if (e==QUOTA_EXCEEDED_ERR) {
