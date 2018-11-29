@@ -20,7 +20,7 @@ let cuisine = "";
 
 function recipeAjax() {
     let recipeAPIkey = "7872e935a7940ef06e573678577b1f1a";
-    let recipeQueryURL = "https://www.food2fork.com/api/search?key=" + recipeAPIkey + "&q=" + mainIng + "&sort=r";
+    let recipeQueryURL = "https://www.food2fork.com/api/search?key=" + recipeAPIkey + "&q=" + mainIng + "&sort=r&count=6";
 
     $.ajax({
         url: recipeQueryURL,
@@ -39,10 +39,10 @@ function recipeAjax() {
 
 function displayRecipes(data) {
     console.table(data);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < data.length; i++) {
         // make the card div
-        let column = $("<div>").addClass("col s6 m6 l3");
-        let card = $("<div>").addClass("card");
+        let column = $("<div>").addClass("col s6 m6");
+        let card = $("<div>").addClass("card medium");
 
         // make the div for the image
         let cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light");
@@ -91,7 +91,7 @@ function displayRestaurants(data) {
     console.table(data);
 
     // dynamically create the content for each result
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < data.length; i++) {
         // get values for the listing
         let name = data[i].venue.name;
         let venueID = data[i].venue.id;
@@ -143,19 +143,9 @@ $(function () {
         // stop the default behavior
         event.preventDefault();
 
-        // open the results.html
-        // window.open("results.html", "_top");
-
         // grab the main-ingredient for the query
         mainIng = $("#main-ing").val().trim();
-        // secIng = $("#sec-ing").val().trim();
-        // thirdIng = $("#third-ing").val().trim();
-        // fourthIng = $("#fourth-ing").val().trim();
-        // fifthIng = $("#fifth-ing").val().trim();
-        // sixIng = $("#six-ing").val().trim();
-        // address = $("#address").val().trim();
-        // cuisine = $("#cuisine").val().trim();
-        // dietRest = $("#diet-rest").val().trim();
+
         restaurantAjax();
         recipeAjax();
     });
