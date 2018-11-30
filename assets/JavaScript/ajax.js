@@ -152,6 +152,7 @@ function getLocation() {
                 zoom: 13,
                 center: [myLong, myLat]
             });
+            map.addControl(new mapboxgl.NavigationControl());
         });
     } else {
         $("#coord").text("Geolocation is not supported by this browser.");
