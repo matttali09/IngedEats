@@ -18,7 +18,7 @@ body {
     background-color: #ff9800b5;
 }
 .data {
-    background-image: linear-gradient(to bottom right, lightgreen, green);
+    background-image: transparent;
 }
 
 /* magrgin styling */
