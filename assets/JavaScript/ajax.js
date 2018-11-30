@@ -1,9 +1,26 @@
-console.log("This file is connected.");
-
 // variables ===========================================
 let mainIng = "";
-let myLat;
-let myLong;
+let myLat = 28.59400;
+let myLong = -81.20187;
+let map;
+let marker;
+
+// surprise me array of top 20 ingredients and function
+let topIngredients = [
+    "chicken",
+    "Brown+Rice",
+    "Paella",
+    "Tomatoes",
+    "Sausage",
+    "onions",
+    "green+pepper",
+    "pepper",
+    "beans",
+    "corn",
+    "beef",
+    "garlic",
+    "soy"
+];
 
 function recipeAjax() {
     let recipeAPIkey = "7872e935a7940ef06e573678577b1f1a";
@@ -58,14 +75,14 @@ function displayRecipes(data) {
 function restaurantAjax() {
     let clientID = "2EQ443BHONMJJ0ZGUNR4ZWXOJQPGBRWDWVV55UBLPSOS5B3E";
     let clientSecret = "YUCEUTQGZR3IAVPWFSB1C1ICQSKO1ABUBFEIKCRSWXMHVZQJ";
-    let queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=" + clientID + "&client_secret=" + clientSecret + "&v=20181127&limit=5&ll=" + myLat + "," + myLong + "&query='" + mainIng + "'";
+    let queryURL = "https://api.foursquare.com/v2/venues/explore?client_id=" + clientID + "&client_secret=" + clientSecret + "&v=20181127&limit=5&ll=" + myLat + "," + myLong + "&radius=15000&categoryId=4d4b7105d754a06374d81259&query='" + mainIng + "'";
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (resp) {
         // confirm data received
-        console.log(`Eat Street results:`);
+        console.log(`Four Square results:`);
         console.log(queryURL);
         console.log(resp);
 
@@ -103,10 +120,19 @@ function displayRestaurants(data) {
         list.append(title);
         list.append(addr);
         $("#restaurant-results").prepend(list);
+
+        // add the marker to the map
+        marker = new mapboxgl.Marker()
+            .setLngLat([long, lat])
+            .setPopup(new mapboxgl.Popup({
+                offset: 25
+            }) // add popups
+            .setHTML("<p>" + name + "<p>"))
+            .addTo(map);
     }
 }
 
-// function that checks to see if GPS capability is available
+// function that checks to see if GPS capability is available and then create the map
 function getLocation() {
     event.preventDefault();
 
@@ -116,44 +142,38 @@ function getLocation() {
             myLat = parseFloat(position.coords.latitude);
             myLong = parseFloat(position.coords.longitude);
             $("#coord").html("Latitude: " + myLat + "<br>Longitude: " + myLong);
+
+            // adds the map to the site
+            mapboxgl.accessToken = 'pk.eyJ1Ijoid2lucGlsZGV1IiwiYSI6ImNqcDJzbnd1aDAwam8zd3BlejczaWwxa2EifQ.bLD5Bdgv8hiiXbaAIqjLdA';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v10',
+                zoom: 13,
+                center: [myLong, myLat]
+            });
         });
     } else {
         $("#coord").text("Geolocation is not supported by this browser.");
     }
 }
 
-
-// surprise me array of top 20 ingredients and function
-let topIngredients = [
-    "chicken",
-    "Brown+Rice",
-    "Paella",
-    "Tomatoes",
-    "Sausage",
-    "onions",
-    "green+pepper",
-    "pepper",
-    "beans",
-    "corn", 
-    "beef",
-    "garlic",
-    "soy"
-];
 function surpriseMe() {
     // for (let i = 0; i < topIngredients.length; i++) {
-    var item = topIngredients[Math.floor(Math.random()*topIngredients.length)];
+    var item = topIngredients[Math.floor(Math.random() * topIngredients.length)];
     return item
 }
 
-// attach suprise me to a suprise me button
+// MAIN CODE =================================================
+
+// document ready func.
 $(function () {
-    //needs button id
-    $("#surprise-me").on("click", function (event) {
+
+    $("#submit").on("click", function (event) {
         // stop the default behavior
         event.preventDefault();
 
         // grab the main-ingredient for the query
-        mainIng = surpriseMe();
+        mainIng = $("#main-ing").val().trim();
 
         // show the results area
         $("#recipes").css("display", "block");
@@ -161,22 +181,15 @@ $(function () {
 
         // run the ajax calls
         restaurantAjax();
-        recipeAjax();
+        // recipeAjax();
     });
 
-    $("#loc").on("click", getLocation);
-});
-
-// MAIN CODE =================================================
-
-// document ready func.
-$(function () {
-    $("#submit").on("click", function (event) {
+    $("#surprise-me").on("click", function (event) {
         // stop the default behavior
         event.preventDefault();
 
         // grab the main-ingredient for the query
-        mainIng = $("#main-ing").val().trim();
+        mainIng = surpriseMe();
 
         // show the results area
         $("#recipes").css("display", "block");
@@ -203,7 +216,7 @@ let myFavourite = {
 };
 
 // favorites logic
-$(this).on("click", ".favorites", function(event) {
+$(this).on("click", ".favorites", function (event) {
     try {
         // turn button off
         $(this).attr("disabled", true);
@@ -215,12 +228,12 @@ $(this).on("click", ".favorites", function(event) {
         var myFavouriteRecipe = JSON.parse(localStorage.getItem("favProp"));
 
         //if favorite is null dont change
-        if (myFavouriteRecipe == null){
+        if (myFavouriteRecipe == null) {
             myFavouriteRecipe = [];
         }
         // if not null and the item is but already favorite
-        if (myFavouriteRecipe != null){
-            for (var i=0; i < myFavouriteRecipe.length; i++) {
+        if (myFavouriteRecipe != null) {
+            for (var i = 0; i < myFavouriteRecipe.length; i++) {
                 if (propIDToAdd == myFavouriteRecipe[i]) {
                     alert("This item is already a favorite");
                     myFavouriteRecipe = [];
@@ -233,45 +246,44 @@ $(this).on("click", ".favorites", function(event) {
     }
     // catch errors statements
     catch (e) {
-        if (e==QUOTA_EXCEEDED_ERR) {
+        if (e == QUOTA_EXCEEDED_ERR) {
             console.log("Error: local storage limit exceeds max");
-            
-        }
-        else {
+
+        } else {
             console.log("ERROR: Saving to local storage.")
         }
     }
 });
 // remove favorites function
-$(this).on("click", ".removeFavorites", function(event) {
+$(this).on("click", ".removeFavorites", function (event) {
     //turn button off
-        $(this).attr("disabled", true);
+    $(this).attr("disabled", true);
 
-        // grab property to remove
-        var propIDToRemove = $(this.closest("p").attr("id"));
+    // grab property to remove
+    var propIDToRemove = $(this.closest("p").attr("id"));
 
-        // premove from local storage
-        var myFavourite = JSON.parse(localStorage.getItem("favProp"));
+    // premove from local storage
+    var myFavourite = JSON.parse(localStorage.getItem("favProp"));
 
-        // if my f property is in the storage remove it and alert that it has been removed
-        if (myFavourite != null){
-            for (var i=0; i < myFavourite.length; i++) {
-                if (propIDToRemove == myFavourite[i]) {
-                    alert("This property is has been removed");
-                    delete myFavourite[i];
-                    localStorage.setItem("favProp", JSON.stringify(myFavourite));
-                    myFavourite =[];
-                }
+    // if my f property is in the storage remove it and alert that it has been removed
+    if (myFavourite != null) {
+        for (var i = 0; i < myFavourite.length; i++) {
+            if (propIDToRemove == myFavourite[i]) {
+                alert("This property is has been removed");
+                delete myFavourite[i];
+                localStorage.setItem("favProp", JSON.stringify(myFavourite));
+                myFavourite = [];
             }
         }
-        // if my favourite array is empty
-        if (myFavourite == null){
-            alert("You have no favorite items")
-        }
+    }
+    // if my favourite array is empty
+    if (myFavourite == null) {
+        alert("You have no favorite items")
+    }
 });
 
 // view favorites function
-$(this).on("click", ".viewFavorites", function(event) {
+$(this).on("click", ".viewFavorites", function (event) {
     console.log("restoring array from data from local storage");
 
     myFavourite = JSON.parse(localStorage.getItem("favProp"));
@@ -279,11 +291,11 @@ $(this).on("click", ".viewFavorites", function(event) {
     var output = $("<ul>")
 
     if (myFavourite != null) {
-        for (var i = 0; data.properties.length; i++){
-            for (var j = 0; j<myFavourite.length; j++) {
+        for (var i = 0; data.properties.length; i++) {
+            for (var j = 0; j < myFavourite.length; j++) {
 
                 if (data.properties[i].id == myFavourite[j]) {
-                    output += "<h6><li>" + data.properties[i].bedrooms + " Bedrooms " + data.properties[i].type + $("</li></h5>") + "<img src=" + data.properties[i].picture + ">" + "<li><button> a href='" + data.properties[i].url + "'>Visitpage</a></button></li>"; 
+                    output += "<h6><li>" + data.properties[i].bedrooms + " Bedrooms " + data.properties[i].type + $("</li></h5>") + "<img src=" + data.properties[i].picture + ">" + "<li><button> a href='" + data.properties[i].url + "'>Visitpage</a></button></li>";
                 }
             }
         }
@@ -291,10 +303,10 @@ $(this).on("click", ".viewFavorites", function(event) {
     output += "</ul>";
 
     $("#placeholder").html(output);
-    
+
 });
 // remove favorite item funciton
-$(this).on("click", ".removeFavorites", function(event) { 
+$(this).on("click", ".removeFavorites", function (event) {
 
     $("#placeholder").remove();
 
@@ -308,32 +320,32 @@ $(this).on("click", ".removeFavorites", function(event) {
 // SignIn CODE =================================================
 
 function onSignIn(googleUser) {
-  console.log("this is after signin press");
+    console.log("this is after signin press");
 
-  var profile = googleUser.getBasicProfile();
-  console.log(profile);
+    var profile = googleUser.getBasicProfile();
+    console.log(profile);
 
-  $(".g-signin2").css("display", "none");
-  $(".data").css("display", "block");
-  $("#pic").attr('src', profile.getImageUrl());
-  $("#emailAdd").text(profile.getEmail());
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    $(".g-signin2").css("display", "none");
+    $(".data").css("display", "block");
+    $("#pic").attr('src', profile.getImageUrl());
+    $("#emailAdd").text(profile.getEmail());
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
 function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    alert("You have successfully signed out")
-    $(".g-signin2").css("display", "block");
-    $(".data").css("display", "none");
-    console.log('User signed out.');
-  });
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        alert("You have successfully signed out")
+        $(".g-signin2").css("display", "block");
+        $(".data").css("display", "none");
+        console.log('User signed out.');
+    });
 }
 
 $("#go-back").click(function (e) {
-  e.preventDefault();
-  window.open("index.html")
+    e.preventDefault();
+    window.open("index.html")
 });
