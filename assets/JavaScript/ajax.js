@@ -51,7 +51,7 @@ function displayRecipes(data) {
         card.append(cardImage);
         card.append(cardContent);
         column.append(card);
-        $("#recipe-results").prepend(column);
+        $("#recipe-results").append(column);
     }
 }
 
@@ -102,7 +102,7 @@ function displayRestaurants(data) {
         list.append(link);
         list.append(title);
         list.append(addr);
-        $("#restaurant-results").prepend(list);
+        $("#restaurant-results").append(list);
     }
 }
 
@@ -270,7 +270,7 @@ $(this).on("click", ".removeFavorites", function(event) {
         }
 });
 
-// view favorites function
+// view favorites favorites
 $(this).on("click", ".viewFavorites", function(event) {
     console.log("restoring array from data from local storage");
 
@@ -314,7 +314,7 @@ function onSignIn(googleUser) {
   console.log(profile);
 
   $(".g-signin2").css("display", "none");
-  $(".data").css("display", "block");
+  $(".data").css("display", "block").css("background-image", "linear-gradient(to bottom right, lightgreen, green)");
   $("#pic").attr('src', profile.getImageUrl());
   $("#emailAdd").text(profile.getEmail());
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
