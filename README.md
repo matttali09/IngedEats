@@ -12,8 +12,8 @@ It also Uses location services to direct you to the nearest restaurants with the
 
 There is also a surprise me feature which causes a random ingredient to be used in a search.
 
-![surprise](assets/images/surprise?PNG=true "surprise")
+![surprise](assets/images/surprise.PNG?raw=true "surprise")
 
 Users can also signin and soon will be able to select their favorites
 
-![sign-in](assets/images/sign-in?PNG=true "sign-in")
+![sign-in](assets/images/sign-in.PNG?raw=true "sign-in")
