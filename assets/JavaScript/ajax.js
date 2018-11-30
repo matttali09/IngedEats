@@ -181,7 +181,7 @@ $(function () {
 
         // run the ajax calls
         restaurantAjax();
-        // recipeAjax();
+        recipeAjax();
     });
 
     $("#surprise-me").on("click", function (event) {
