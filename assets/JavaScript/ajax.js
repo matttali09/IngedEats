@@ -68,7 +68,7 @@ function displayRecipes(data) {
         card.append(cardImage);
         card.append(cardContent);
         column.append(card);
-        $("#recipe-results").prepend(column);
+        $("#recipe-results").append(column);
     }
 }
 
@@ -119,6 +119,7 @@ function displayRestaurants(data) {
         list.append(link);
         list.append(title);
         list.append(addr);
+
         $("#restaurant-results").prepend(list);
 
         // add the marker to the map
@@ -282,8 +283,8 @@ $(this).on("click", ".removeFavorites", function (event) {
     }
 });
 
-// view favorites function
-$(this).on("click", ".viewFavorites", function (event) {
+// view favorites favorites
+$(this).on("click", ".viewFavorites", function(event) {
     console.log("restoring array from data from local storage");
 
     myFavourite = JSON.parse(localStorage.getItem("favProp"));
@@ -320,19 +321,19 @@ $(this).on("click", ".removeFavorites", function (event) {
 // SignIn CODE =================================================
 
 function onSignIn(googleUser) {
-    console.log("this is after signin press");
+  console.log("this is after signin press");
 
-    var profile = googleUser.getBasicProfile();
-    console.log(profile);
+  var profile = googleUser.getBasicProfile();
+  console.log(profile);
 
-    $(".g-signin2").css("display", "none");
-    $(".data").css("display", "block");
-    $("#pic").attr('src', profile.getImageUrl());
-    $("#emailAdd").text(profile.getEmail());
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  $(".g-signin2").css("display", "none");
+  $(".data").css("display", "block").css("background-image", "linear-gradient(to bottom right, lightgreen, green)");
+  $("#pic").attr('src', profile.getImageUrl());
+  $("#emailAdd").text(profile.getEmail());
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
 function signOut() {
